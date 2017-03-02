@@ -58,15 +58,18 @@
 
 /* 导航栏 */
 .navbar {
-    background: #F86672;
+    /*background: #F86672;*/
+    /*background: #000;*/
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
     height: 38px;
-    position: relative;
+    /*position: relative;*/
     left: 0px;
     right: 0px;
     z-index: 999;
 	top: 0px;
+    position: fixed;
+    background: rgba(40,42,44,.6);
 }
 
 .navbar .container {
@@ -185,7 +188,7 @@ transition: .6s;
 /* 站点标题 */
 
 #description {
-    background: url(../images/header.jpg);
+    background: url("http://ols8kn0qk.bkt.clouddn.com/header-itsay.jpg");
     background-position-y: 10%;
     background-size: cover;
     height: 650px;
@@ -193,7 +196,7 @@ transition: .6s;
 
 #site-header {
     position: relative;
-    top: 140px;
+    top: 178px;
     font-family: Minion, Georgia, SimSun, serif;
     font-size: 68px;
     font-weight: bold;
@@ -241,8 +244,9 @@ float: left;
 color: #fff;
 }
 .edit-wz > a > p {
-font-size: 15px;
-cursor: pointer;
+    font-size: 15px;
+    cursor: pointer;
+    line-height: 18px;
 }
 
 /* 中央信息块 */

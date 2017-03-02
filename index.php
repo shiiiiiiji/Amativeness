@@ -1,8 +1,6 @@
 <?php get_header(); ?>
 	<div class="main" id="thumbs">
 		<?php if ( have_posts() ) : ?>
-
-			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'wzpage', get_post_format() ); ?>
 			<?php endwhile; ?>
@@ -34,7 +32,9 @@
 			</article><!-- #post-0 -->
 		<?php endif; // end have_posts() check ?>
 	</div><!-- main -->
-	<?php get_sidebar(); ?>	
+
+	<?php get_sidebar(); ?>
+
 	<div id="pagination">
 	<?php next_posts_link(__('点击加载更多')); ?>
 	</div>

@@ -1,36 +1,60 @@
 <!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
-<html <?php language_attributes(); ?>>
-<!--<![endif]-->
+<html itemscope="itemscope" itemtype="http://schema.org/WebPage">
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
-<title><?php wp_title( '|', true, 'right' ); ?></title>
-<script type='text/javascript' src='http://libs.baidu.com/jquery/1.8.2/jquery.min.js?ver=1.8.2'></script>
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/form.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/label.css">    
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/zocial.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/global.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/header.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/content.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/comments.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/zidingyi.css">
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-<!--[if lt IE 9]>
-<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
-<![endif]-->
-<?php wp_head(); ?>
+    <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <meta name="theme-color" content="#595C5E">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes"">
+    <meta name="description" content="有关前端，有关互联网（及医疗），有关点点产品运营，有关有关。">
+    <meta name="keywords" content="张大侠,ZDX_IT,ZDX,itsay,前端,互联网,互联网医疗">
+    <title itemprop="name"><?php wp_title('-', true, 'right'); ?></title>
+    <link rel="canonical" href="https://www.itsay.tech/">
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>
+    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
+    <script type='text/javascript' src='<?php echo get_template_directory_uri(); ?>/js/jquery-3.1.1.min.js'></script>
+    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-icon">
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+
+    <!--Google Analytics Start-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-92850215-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!--Google Analytics End-->
+
+    <script src="<?php echo get_template_directory_uri(); ?>/lib/nprogress/nprogress.min.js"></script>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/lib/nprogress/nprogress.min.css">
+
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/form.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/label.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/zocial.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/global.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/header.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/content.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/comments.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/zidingyi.css">
+
+    <link href="https://staticfile.qnssl.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+<!--加载进度条-->
+<script>
+    NProgress.configure({
+        showSpinner: false,
+        easing: 'ease-out',
+        speed: 1000
+    });
+    NProgress.set(1);
+</script>
+
+<!--返回顶部-->
 <div id="back-to-top" class="red" data-scroll="body" style="display: block;">
     <svg id="rocket" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 64 64">
         <path fill="#CCCCCC" d="M42.057,37.732c0,0,4.139-25.58-9.78-36.207c-0.307-0.233-0.573-0.322-0.802-0.329
@@ -41,31 +65,36 @@
         C36.314,21.143,34.272,23.184,31.726,23.155z"></path>
     </svg>
 </div>
+
+<!--头部导航-->
 <div class="navbar">
-<?php if ( is_user_logged_in() ) : ?> 
-	<a href="<?php bloginfo('url');?>/wp-admin/" title="博客后台" class="houtai fa fa-user">后台</a>
-<?php endif; ?>	
-<div class="container">
-<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
-	<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-</nav>
-<?php if ( is_single() ) : ?>
-<div class="edit-wz">
-<?php edit_post_link("<p class='fa fa-pencil'>编辑文章</p>"); ?>
-</div>
-<?php endif; ?>
-<?php if ( is_page() ) : ?>
-<div class="edit-wz">
-<?php edit_post_link("<p class='fa fa-pencil'>编辑文章</p>"); ?>
-</div>
-<?php endif; ?>
-<div class="nav-right">
-	<form class="search-form" method="post" action="<?php bloginfo('url');?>">
-        <input type="text" name="s" class="search-input" placeholder="站内搜索">
-        <button type="submit" class="search-submit sousuo"></button>
-    </form>
-</div>
-</div>
+    <?php if ( is_user_logged_in() ) : ?>
+        <a href="<?php bloginfo('url');?>/wp-admin/" title="博客后台" class="houtai fa fa-user"> 后台</a>
+    <?php endif; ?>
+
+    <div class="container">
+        <nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+            <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+        </nav>
+        <?php if ( is_single() ) : ?>
+            <div class="edit-wz">
+              <?php edit_post_link("<p class='fa fa-pencil'> 编辑文章</p>"); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ( is_page() ) : ?>
+            <div class="edit-wz">
+                <?php edit_post_link("<p class='fa fa-pencil'> 编辑文章</p>"); ?>
+            </div>
+        <?php endif; ?>
+
+        <div class="nav-right">
+            <form class="search-form" method="post" action="<?php bloginfo('url');?>">
+                <input type="text" name="s" class="search-input" placeholder="站内搜索">
+                <button type="submit" class="search-submit sousuo"></button>
+            </form>
+        </div>
+    </div>
 </div>
 
 <header id="description">
@@ -73,10 +102,11 @@
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
     </div>
 </header>
-<div id="information" class="info block">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php header_image(); ?>" class="avatar" data-pinit="registered" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
-                <p class="description"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">我永远不会试图去战胜一个纯傻逼，因为他会用他丰富的经验来打败我...</a></p>
-</div>
-<div class="container" id="content">
 
-<div class="article-list">
+<div id="information" class="info block">
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php header_image(); ?>" class="avatar" data-pinit="registered" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
+    <p class="description"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">多静多思考，反省不张扬</a></p>
+</div>
+
+<div class="container" id="content">
+    <div class="article-list">

@@ -18,7 +18,7 @@
 			<p class="article-meta">本文由 <?php the_author(); ?> 发表于 <?php the_time('Y年n月j日') ?> </p>
 			<?php endif; // is_single() ?>
 			<?php if ( comments_open() ) : ?>
-			<div class="ui ribbon label red"><?php the_category(',') ?></div>
+			<div class="ui ribbon label red"><?php the_category(', ') ?></div>
 			<?php endif; // comments_open() ?>
 		</header><!-- .entry-header -->
 

@@ -4,8 +4,9 @@
 
 		<?php if ( have_posts() ) : ?>
 		<article class="block post">
-<div class="ui ribbon label red">分类目录</div>
-		</article>	
+            <div class="ui ribbon label red">分类目录</div>
+            <p><?php if(is_category()) {$cat = get_query_var('cat');$yourcat = get_category($cat);echo "" . $yourcat->name;} ?>  </p>
+		</article>
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
@@ -14,7 +15,8 @@
 				 * this in a child theme then include a file called called content-___.php
 				 * (where ___ is the post format) and that will be used instead.
 				 */
-				get_template_part( 'content', get_post_format() );
+//				get_template_part( 'content', get_post_format() );
+                get_template_part( 'wzpage', get_post_format() );
 
 			endwhile;
 
