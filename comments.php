@@ -46,6 +46,6 @@ if ( post_password_required() )
 		'comment_notes_after' => '',
 		'comment_field' => '<div class="field"> <textarea id="comment-content" name="comment" cols="45" rows="8" aria-required="true" placeholder="回复内容 (必填)"></textarea></div>',
 		);
-	comment_form( $args ); 
-	wp_smilies();
+	comment_form( $args );
+//	wp_smilies();
 ?>

@@ -1,8 +1,8 @@
 /**
  * Twenty Fourteen keyboard support for image navigation.
  */
-( function( $ ) {
-	$( document ).on( 'keydown.twentyfourteen', function( e ) {
+( function($) {
+	$(document).on( 'keydown.twentyfourteen', function(e){
 		var url = false;
 
 		// Left arrow key code.

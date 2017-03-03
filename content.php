@@ -10,7 +10,9 @@
 		<?php endif; ?>
 		<header class="entry-header">
 			<?php if ( is_single() ) : ?>
-			<p class="title"><?php the_title(); ?></p>
+			    <p class="title"><?php the_title(); ?></p>
+                <p class="article-meta"><i class="fa fa-heart-o"></i>发表于 <time itemprop="datePublished" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php the_time('Y年n月j日') ?></time> • <i class="fa fa-eye"></i><?php if (function_exists('the_views')) { the_views(); } ?> • <i class="fa fa-comment-o"></i><?php comments_number('快来坐沙发！', '1 条评论', '% 条评论'); ?>
+                </p>
 			<?php else : ?>
 			<p class="title">
 				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>

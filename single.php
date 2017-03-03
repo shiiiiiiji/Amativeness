@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 	<div class="main" id="thumbs">
-		
+
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>

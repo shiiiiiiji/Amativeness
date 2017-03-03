@@ -1865,8 +1865,8 @@ article > div > p {
 line-height: 20px;
 }
 #ds-recent-visitors > div > a > img {
-width: 50px!important;
-height: 50px!important;
+width: 50px;
+height: 50px;
 border-radius: 50%;
 }
 
@@ -1874,7 +1874,7 @@ border-radius: 50%;
 #reader_wall {margin:0 0 10px 0;}
 #archive_title em, #archive_title_reader em {margin-left:5px; font-weight:normal;}
 .readers-list {line-height:18px;text-align:left;_zoom:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;-o-text-}
-.readers-list li {width:200px; float:left; margin-right:-1px;}
+.readers-list li {width: 33%; float:left; margin-right:-1px;}
 .readers-list a, .readers-list a:hover strong {background-color:#f2f2f2; background-image:-webkit-linear-gradient(#f8f8f8,#f2f2f2);background-image:-moz-linear-gradient(#f8f8f8,#f2f2f2); background-image:linear-gradient(#f8f8f8,#f2f2f2);}
 .readers-list a {position:relative; display:block; height:36px; margin:4px; padding:4px 4px 4px 44px; color:#999; overflow:hidden; border:#d8d1a7 1px solid; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; box-shadow:#eee 0 0 2px;}
 .readers-list img, .readers-list em, .readers-list strong {-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;transition:all .2s ease-out}

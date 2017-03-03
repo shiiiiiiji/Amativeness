@@ -3,6 +3,7 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="theme-color" content="#595C5E">
+    <meta name="baidu-site-verification" content="Hb6eig44Ku" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes"">
     <meta name="description" content="有关前端，有关互联网（及医疗），有关点点产品运营，有关有关。">
     <meta name="keywords" content="张大侠,ZDX_IT,ZDX,itsay,前端,互联网,互联网医疗">
@@ -11,25 +12,9 @@
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>
     <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-    <script type='text/javascript' src='<?php echo get_template_directory_uri(); ?>/js/jquery-3.1.1.min.js'></script>
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-icon">
     <link rel="profile" href="http://gmpg.org/xfn/11" />
-
-    <!--Google Analytics Start-->
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-92850215-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <!--Google Analytics End-->
-
-    <script src="<?php echo get_template_directory_uri(); ?>/lib/nprogress/nprogress.min.js"></script>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/lib/nprogress/nprogress.min.css">
-
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/form.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/label.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/zocial.css">
@@ -38,11 +23,10 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/content.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/comments.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/zidingyi.css">
-
     <link href="https://staticfile.qnssl.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="<?php echo get_template_directory_uri(); ?>/lib/nprogress/nprogress.min.js"></script>
     <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
 <!--加载进度条-->
 <script>

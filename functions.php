@@ -1,4 +1,175 @@
 <?php
+
+//日志归档
+class hacklog_archives
+{
+    function GetPosts()
+    {
+        global  $wpdb;
+        if ( $posts = wp_cache_get( 'posts', 'ihacklog-clean-archives' ) ) return $posts;
+        $query="SELECT DISTINCT ID,post_date,post_date_gmt,comment_count,comment_status,post_password FROM $wpdb->posts WHERE post_type='post' AND post_status = 'publish' AND comment_status = 'open'";
+        $rawposts =$wpdb->get_results( $query, OBJECT );
+        foreach( $rawposts as $key => $post ) {
+            $posts[ mysql2date( 'Y.m', $post->post_date ) ][] = $post;
+            $rawposts[$key] = null;
+        }
+        $rawposts = null;
+        wp_cache_set( 'posts', $posts, 'ihacklog-clean-archives' );;
+        return $posts;
+    }
+    function PostList( $atts = array() )
+    {
+        global $wp_locale;
+        global $hacklog_clean_archives_config;
+        $atts = shortcode_atts(array(
+            'usejs'        => $hacklog_clean_archives_config['usejs'],
+            'monthorder'   => $hacklog_clean_archives_config['monthorder'],
+            'postorder'    => $hacklog_clean_archives_config['postorder'],
+            'postcount'    => '1',
+            'commentcount' => '1',
+        ), $atts);
+        $atts=array_merge(array('usejs'=>1,'monthorder'   =>'new','postorder'    =>'new'),$atts);
+        $posts = $this->GetPosts();
+        ( 'new' == $atts['monthorder'] ) ? krsort( $posts ) : ksort( $posts );
+        foreach( $posts as $key => $month ) {
+            $sorter = array();
+            foreach ( $month as $post )
+                $sorter[] = $post->post_date_gmt;
+            $sortorder = ( 'new' == $atts['postorder'] ) ? SORT_DESC : SORT_ASC;
+            array_multisort( $sorter, $sortorder, $month );
+            $posts[$key] = $month;
+            unset($month);
+        }
+        $html = '<div class="article-container">'. "\n".'<ul class="article-list">' . "\n";
+        $firstmonth = TRUE;
+        foreach( $posts as $yearmonth => $posts ) {
+            list( $year, $month ) = explode( '.', $yearmonth );
+            $firstpost = TRUE;
+            foreach( $posts as $post ) {
+                if ( TRUE == $firstpost ) {
+                    $html .= '  <li><h2 class="article-yearmonth">' . sprintf( __('%1$s%2$s'), $year.'年',$month.'月') .'</h2>';
+                    if ( '0' != $atts['postcount'] )
+                    {
+                        $html .= '<span title="文章数量">(共' . count($posts) . '篇文章)</span>';
+                    }
+                    $html .= "\n<ul class='article-monthlisting'>\n";
+                    $firstpost = FALSE;
+                }
+                $html .= '<li>' .  mysql2date( 'd', $post->post_date ) . '日: <a target="_blank" href="' . get_permalink( $post->ID ) . '">' . get_the_title( $post->ID ) . '</a>';
+                if ( '0' != $atts['commentcount'] && ( 0 != $post->comment_count || 'closed' != $post->comment_status ) && empty($post->post_password) )
+                    $html .= ' <span title="评论数量">(' . $post->comment_count . '条评论)</span>';
+                $html .= "</li>\n";
+            }
+            $html .= "      </ul>\n   </li>\n";
+        }
+        $html .= "</ul>\n</div>\n";
+        return $html;
+    }
+    function PostCount()
+    {
+        $num_posts = wp_count_posts( 'post' );
+        return number_format_i18n( $num_posts->publish );
+    }
+}
+if(!empty($post->post_content))
+{
+    $all_config=explode(';',$post->post_content);
+    foreach($all_config as $item)
+    {
+        $temp=explode('=',$item);
+        $hacklog_clean_archives_config[trim($temp[0])]=htmlspecialchars(strip_tags(trim($temp[1])));
+    }
+}
+else
+{
+    $hacklog_clean_archives_config=array('usejs'=>1,'monthorder'   =>'new','postorder'    =>'new');
+}
+$hacklog_archives=new hacklog_archives();
+
+
+// 禁用 Google Fonts, fonts.googleapis.com slow down site
+class Disable_Google_Fonts {
+    public function __construct() {
+        add_filter( 'gettext_with_context', array( $this, 'disable_open_sans' ), 888, 4 );
+    }
+    public function disable_open_sans( $translations, $text, $context, $domain ) {
+        if ( 'Open Sans font: on or off' == $context && 'on' == $text ) {
+            $translations = 'off';
+        }
+        return $translations;
+    }
+}
+$disable_google_fonts = new Disable_Google_Fonts;
+
+function remove_open_sans() {
+    wp_deregister_style( 'open-sans' );
+    wp_register_style( 'open-sans', false );
+    wp_enqueue_style('open-sans','');
+}
+add_action( 'init', 'remove_open_sans' );
+
+// 默认用户注册不显示工具栏
+add_action("user_register", "set_user_admin_bar_false_by_default", 10, 1);
+function set_user_admin_bar_false_by_default($user_id) {
+    update_user_meta( $user_id, 'show_admin_bar_front', 'false' );
+    update_user_meta( $user_id, 'show_admin_bar_admin', 'false' );
+}
+
+// 头像ssl
+function get_ssl_avatar($avatar) {
+    $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
+    return $avatar;
+}
+add_filter('get_avatar', 'get_ssl_avatar');
+
+// 后台使用 "PingFang SC"  Microsoft YaHei 字体
+function Fanly_admin_lettering() {
+    echo '<style type="text/css">
+* { font-family: "PingFang SC",Microsoft YaHei;-webkit-font-smoothing: antialiased; }
+#activity-widget #the-comment-list .avatar { max-width: 50px; max-height: 50px; }
+</style>';
+}
+add_action( 'admin_head', 'Fanly_admin_lettering' );
+
+// 删除多余头部信息 header info
+remove_action( 'wp_head', 'feed_links', 2 ); //移除feed
+remove_action( 'wp_head', 'feed_links_extra', 3 ); //移除feed
+remove_action( 'wp_head', 'rsd_link' ); //移除离线编辑器开放接口
+remove_action( 'wp_head', 'wlwmanifest_link' ); //移除离线编辑器开放接口
+remove_action( 'wp_head', 'index_rel_link' );//去除本页唯一链接信息
+remove_action('wp_head', 'parent_post_rel_link', 10, 0 );//清除前后文信息
+remove_action('wp_head', 'start_post_rel_link', 10, 0 );//清除前后文信息
+remove_action( 'wp_head', 'wp_generator' ); //移除WordPress版本
+
+// 替换 WordPress 默认 Emoji 资源地址
+function change_wp_emoji_baseurl($url){
+    return set_url_scheme('//cdn.bootcss.com/twemoji/1.4.1/72×72/');
+}
+add_filter('emoji_url', 'change_wp_emoji_baseurl');
+
+
+//WordPress 技巧：彻底关闭 WordPress 自动更新和后台更新检查，http://blog.wpjam.com/m/disable-wordpress-auto-update/
+add_filter('automatic_updater_disabled', '__return_true');	// 彻底关闭自动更新
+
+remove_action('init', 'wp_schedule_update_checks');	// 关闭更新检查定时作业
+wp_clear_scheduled_hook('wp_version_check');			// 移除已有的版本检查定时作业
+wp_clear_scheduled_hook('wp_update_plugins');		// 移除已有的插件更新定时作业
+wp_clear_scheduled_hook('wp_update_themes');			// 移除已有的主题更新定时作业
+wp_clear_scheduled_hook('wp_maybe_auto_update');		// 移除已有的自动更新定时作业
+
+remove_action( 'admin_init', '_maybe_update_core' );		// 移除后台内核更新检查
+
+remove_action( 'load-plugins.php', 'wp_update_plugins' );	// 移除后台插件更新检查
+remove_action( 'load-update.php', 'wp_update_plugins' );
+remove_action( 'load-update-core.php', 'wp_update_plugins' );
+remove_action( 'admin_init', '_maybe_update_plugins' );
+
+remove_action( 'load-themes.php', 'wp_update_themes' );		// 移除后台主题更新检查
+remove_action( 'load-update.php', 'wp_update_themes' );
+remove_action( 'load-update-core.php', 'wp_update_themes' );
+remove_action( 'admin_init', '_maybe_update_themes' );
+
+
 add_filter('show_admin_bar', '__return_false');
 // Set up the content width value based on the theme's design and stylesheet.
 if ( ! isset( $content_width ) )
