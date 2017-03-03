@@ -138,6 +138,11 @@
     text-align: center;
 }
 
+/* 文章样式自定义 */
+.article-content{
+    
+}
+
 /* 阅读全文 */
 .read-full{
     margin-top: 20px!important;

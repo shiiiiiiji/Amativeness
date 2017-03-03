@@ -29,7 +29,7 @@
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 		<?php else : ?>
-		<div class="article-content red">
+		<div class="article-content typo red">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'amativeness' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'amativeness' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .article-content -->

@@ -22,7 +22,7 @@
 			<div class="ui ribbon label red"><?php the_category(', ') ?></div>
 
 			<?php endif; // comments_open() ?>
-			<div class="article-content red">
+			<div class="article-content typo red">
                 <?php if ( has_post_thumbnail()) : ?>
                     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
                         <?php the_post_thumbnail('full', array('class' => 'aligncenter')); ?>

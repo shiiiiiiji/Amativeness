@@ -275,7 +275,7 @@ musicNext.style.display='block';
 			<?php while ( have_posts() ) : the_post(); ?>
 
 <article id="post-<?php the_ID(); ?>" class="block post music-c">  
-<div class="article-content red">
+<div class="article-content typo red">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'amativeness' ) ); ?>
 		</div>
 

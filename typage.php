@@ -22,7 +22,7 @@
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 		<?php else : ?>
-		<div class="article-content red">
+		<div class="article-content typo red">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'amativeness' ) ); ?>
 		</div><!-- .article-content -->
 		<?php endif; ?>

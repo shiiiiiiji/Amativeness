@@ -122,6 +122,14 @@ function get_ssl_avatar($avatar) {
 }
 add_filter('get_avatar', 'get_ssl_avatar');
 
+// Gravatar又被墙了，WordPress同步Gravatar至多说头像托管解决方案。https://segmentfault.com/a/1190000002387428
+function rccoder_get_avatar($avatar) {
+$avatar = str_replace(array("www.gravatar.com","0.gravatar.com","1.gravatar.com","2.gravatar.com"),
+"gravatar.duoshuo.com",$avatar);
+return $avatar;
+}
+add_filter( 'get_avatar', 'rccoder_get_avatar', 10, 3 );
+
 // 后台使用 "PingFang SC"  Microsoft YaHei 字体
 function Fanly_admin_lettering() {
     echo '<style type="text/css">
