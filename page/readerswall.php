@@ -7,7 +7,7 @@ get_header(); ?>
 		
 			<?php while ( have_posts() ) : the_post(); ?>
 
-<article id="post-<?php the_ID(); ?>" class="block post">  
+<article id="post-<?php the_ID(); ?>" class="block typo">  
 <?php
 
 $query = "SELECT COUNT(comment_ID) AS cnt, comment_author, comment_author_url, comment_author_email FROM (SELECT * FROM {$wpdb->comments} LEFT OUTER JOIN {$wpdb->posts} ON ({$wpdb->posts}.ID={$wpdb->comments}.comment_post_ID) AND user_id='0' AND comment_author_email != 'ze.zh@hotmail.com' AND post_password='' AND comment_approved='1' AND comment_type='') AS tempcmt GROUP BY comment_author_email ORDER BY cnt DESC LIMIT 1000";

@@ -27,10 +27,19 @@
 			<p class="title">
 				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 			</p>
-			<p class="article-meta">本文由 <?php the_author(); ?> 发表于 <?php the_time('Y年n月j日') ?> </p>
+			<p class="article-meta"><i class="fa fa-heart-o"></i>发表于 <time itemprop="datePublished" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php the_time('Y年n月j日') ?></time> • <i class="fa fa-eye"></i><?php if (function_exists('the_views')) { the_views(); } ?> • <i class="fa fa-comment-o"></i><?php comments_number('快来坐沙发！', '1 条评论', '% 条评论'); ?>
+            </p>
 			<?php endif; // is_single() ?>
 			<?php if ( comments_open() ) : ?>
+				<div class="ui ribbon label red"><?php the_category(', ') ?></div>
 			<?php endif; // comments_open() ?>
+			<div class="article-content typo red">
+                <?php if ( has_post_thumbnail()) : ?>
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+                        <?php the_post_thumbnail('full', array('class' => 'aligncenter')); ?>
+                    </a>
+                <?php endif; ?>
+			</div>
 		</header><!-- .entry-header -->
 
 		<?php if ( is_search() ) : // Only display Excerpts for Search ?>

@@ -24,6 +24,12 @@
     .article-list > .main {
         width: 100%
     }
+    #pagination{
+        width: 100%!important;
+    }
+    #primary{
+        width: 100%!important;
+    }
 }
 
 
@@ -127,7 +133,9 @@
 
 @media (max-width: 480px) {
     .round-date {
-        display: none;
+        top: -10px;
+        height: 50px;
+        width: 60px;
     }
 }
 
@@ -141,6 +149,10 @@
 /* 文章样式自定义 */
 .article-content{
     
+}
+
+.article-monthlisting li{
+    line-height: 28px;
 }
 
 /* 阅读全文 */

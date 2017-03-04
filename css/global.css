@@ -65,9 +65,17 @@ img.avatar {
 }
 
 
-.article-list .main p {
-    margin: 10px 0px;
+.article-list .main p.title {
+    margin: 10px auto;
+    width: 80%;
 }
+
+.article-content div p{
+    /*width: 100%;*/
+    line-height: 20px;
+}
+
+
 
 /* 布局 */
 
@@ -206,6 +214,7 @@ footer a:hover {
 #content {
     position:relative;
     margin-top: -180px;
+    word-wrap: break-word;
 }
 
 form textarea {

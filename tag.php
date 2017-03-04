@@ -1,18 +1,34 @@
 <?php get_header(); ?>
-			<div class="main">
+
+	<div class="main">
+
+		<?php if ( have_posts() ) : ?>
+		<article class="block post">
+            <div class="ui ribbon label red">标签</div>
+            <p><?php single_tag_title(); ?></p>
+		</article>
+			<?php
+			/* Start the Loop */
+			while ( have_posts() ) : the_post();
+
+				/* Include the post format-specific template for the content. If you want to
+				 * this in a child theme then include a file called called content-___.php
+				 * (where ___ is the post format) and that will be used instead.
+				 */
+//				get_template_part( 'content', get_post_format() );
+                get_template_part( 'wzpage', get_post_format() );
+
+			endwhile;
+
+			amativeness_content_nav( 'nav-below' );
+			?>
+
+		<?php else : ?>
+			<?php get_template_part( 'content', 'none' ); ?>
+		<?php endif; ?>
+
+		</div><!-- #content -->
 		
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php get_template_part( 'content', get_post_format() ); ?>
-
-				<?php comments_template( '', true ); ?>
-
-			<?php endwhile; // end of the loop. ?>
-	<?php amativeness_content_nav( 'nav-below' ); ?>
-	</div><!-- main -->
-
-	</section><!-- #primary -->
-
 <?php get_sidebar(); ?>
 </div><!-- #main .wrapper -->
 </div>

@@ -6,15 +6,15 @@ get_header(); ?>
 <div class="main">
     <?php while ( have_posts() ) : the_post(); ?>
 
-    	<article class="block post">
+    	<article class="article-content block typo">
 			<header class="entry-header">
 				<p class="title">
-					<a href="http://itsay.tech/archives/" rel="bookmark" target="_blank" title=""><span class="yzk_title_49">友情链接</span></a>
+					<span class="yzk_title_49">友情链接</span>
 				</p>
 				<p class="article-meta"><i class="fa fa-eye"></i><?php if (function_exists('the_views')) { the_views(); } ?> • <i class="fa fa-comment-o"></i><?php comments_number('快来坐沙发！', '1 条评论', '% 条评论'); ?>
                 </p>
-                <div class="ui ribbon label red"><a href="">&nbsp;&nbsp;张大侠&nbsp;&nbsp;</a></div>
-                <br/><br/><br/>
+                <div class="ui ribbon label red">&nbsp;&nbsp;张大侠&nbsp;&nbsp;</div>
+                <br/>
                 <ul>
                 	<li>
                 		<h3>微信公众号：</h3>
@@ -28,9 +28,9 @@ get_header(); ?>
                 	<br/>
                 	
                 </ul>
-                <br/><br/><br/>
-                <div class="ui ribbon label red"><a href="">英雄好汉</a></div>
-                <br/><br/><br/>
+                <br/>
+                <div class="ui ribbon label red">英雄好汉</div>
+                <br/>
                 <ul>
                 <?php
 	                $bookmarks = get_bookmarks(array(

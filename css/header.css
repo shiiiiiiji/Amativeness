@@ -55,6 +55,12 @@
 #back-to-top.grey:hover #rocket path {
     fill: #E8E8E8;
 }
+/* 移动端优化 */
+@media (max-width: 890px){
+    #back-to-top{
+        display: none!important;
+    }
+}
 
 /* 导航栏 */
 .navbar {
@@ -192,6 +198,9 @@ transition: .6s;
     background-position-y: 10%;
     background-size: cover;
     height: 650px;
+    /*background-size: cover;*/
+    background-position: center 50%;
+    background-repeat: no-repeat;
 }
 
 #site-header {
@@ -403,3 +412,5 @@ color: #fff;
         -o-transform: translateY(0);
     }
 }
+
+
