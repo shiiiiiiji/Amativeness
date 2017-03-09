@@ -1919,9 +1919,10 @@ border-radius: 50%;
 .readers-list em {color:#666; font-style:normal; margin-right:10px;}
 .readers-list strong {color:#EE8B17; width:40px; text-align:right; position:absolute; right:6px; top:4px; font:bold 14px/16px microsoft yahei;}
 .readers-list a:hover {border-color:#bcbca7; box-shadow:#BBBBBB 0px 0px 3px; background-color:#fff; background-image:none;}
-.readers-list a:hover img {opacity:.6; margin-left:0;}
-.readers-list a:hover em {color:#EE8B17; font:bold 12px/36px microsoft yahei;}
-.readers-list a:hover strong {color:#EE8B17; right:150px; top:0; text-align:center; border-right:#ccc 1px solid; height:44px; line-height:40px;}
+.readers-list a:hover img {opacity:.6; /*margin-left:0;*/}
+.readers-list a:hover em {color:#EE8B17; /*font:bold 12px/36px microsoft yahei;*/}
+/*.readers-list a:hover strong {color:#EE8B17; right:150px; top:0; text-align:center; border-right:#ccc 1px solid; height:44px; line-height:40px;}*/
+.readers-list a:hover strong {background: #fff;}
 
 .music-main {
 width: 67%;
@@ -2133,4 +2134,8 @@ color: #FFF;
 	text-align: left;
 	line-height: 30px;
 	text-indent: 2em;
+}
+a:hover{
+	text-decoration: none;
+	cursor:pointer;
 }
