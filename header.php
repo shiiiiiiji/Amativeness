@@ -25,10 +25,9 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/zidingyi.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/typo.css">
     <link href="https://staticfile.qnssl.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="<?php echo get_template_directory_uri(); ?>/lib/nprogress/nprogress.min.js"></script>
     <?php wp_head(); ?>
     <!-- 接入DaoVoice -->
-    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/7ca72f59.js","daovoice")</script>
+   <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/7ca72f59.js","daovoice")</script>
 </head>
 <body <?php body_class(); ?>>
 <!--加载进度条-->

@@ -6,6 +6,7 @@
         </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
+<!-- 自定义js -->
 <script>
     // 博客运行时间
     function siteTime(){
@@ -59,6 +60,7 @@
     //内置百度搜索
     (function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=1609425198937318702' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();
 </script>
+<script src="<?php echo get_template_directory_uri(); ?>/lib/nprogress/nprogress.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
 <?php wp_footer(); ?>
 </body>
