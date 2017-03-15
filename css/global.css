@@ -16,7 +16,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, div, span, footer {
     cursor: default;
 }
 body {
-    background: #e5e5e5 url(../images/background.png);
+    /*background: #e5e5e5 url(../images/background.png);*/
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 15px;
 }

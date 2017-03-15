@@ -1,7 +1,7 @@
 	<footer id="colophon" role="contentinfo">
 		<div class="container">
             <p>老司机坚持博客已有：<span id="time-count"></span></p>
-            <p>&copy; 2015-<?php echo date('Y'); ?> <a href="<?php echo home_url(); ?>/"><?php //bloginfo('name'); ?>张大侠</a>.由 <a href="http://http://wordpress.org" target="_blank">WordPress</a> 强力驱动.Theme By <a href="https://github.com/zelda/Amativeness" target="_blank">Amativeness</a>.京ICP备15027727号.<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261413711'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1261413711' type='text/javascript'%3E%3C/script%3E"));</script></p>
+            <p>&copy; 2015-<?php echo date('Y'); ?> <a href="<?php echo home_url(); ?>/"><?php //bloginfo('name'); ?>张大侠</a>.由 <a href="http://http://wordpress.org" target="_blank">WordPress</a> 强力驱动.Theme By <a href="https://github.com/zelda/Amativeness" target="_blank">Amativeness</a>.京ICP备15027727号.<script src="https://s11.cnzz.com/z_stat.php?id=1261413711&web_id=1261413711" type="text/javascript"></script></p>
 
         </div>
 	</footer><!-- #colophon -->
@@ -56,11 +56,17 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(bp, s);
     })();
-
-    //内置百度搜索
-    (function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=1609425198937318702' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();
 </script>
 <script src="<?php echo get_template_directory_uri(); ?>/lib/nprogress/nprogress.min.js"></script>
+<!--加载进度条-->
+<script>
+    NProgress.configure({
+        showSpinner: false,
+        easing: 'ease-out',
+        speed: 1000
+    });
+    NProgress.set(1);
+</script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
 <?php wp_footer(); ?>
 </body>

@@ -635,7 +635,7 @@ section[role="banner"] {
 
 /* Footer */
 footer[role="contentinfo"] {
-	border-top: 1px solid #ededed;
+	/*border-top: 1px solid #ededed;*/
 	clear: both;
 	font-size: 12px;
 	font-size: 0.857142857rem;
@@ -2138,4 +2138,7 @@ color: #FFF;
 a:hover{
 	text-decoration: none;
 	cursor:pointer;
+}
+.featured-post{
+	display: none;
 }

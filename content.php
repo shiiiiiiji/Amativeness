@@ -41,6 +41,7 @@
 				<p>本文标题：<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 				<p>作者：<a href="http://itsay.tech">张大侠</a>（公众号：<em>zdx-it</em>） / 转载烦请注明出处</p>
 			</div>
+			<div class="c-qrcode"></div>
 		</div>
 
 		<?php endif; ?>

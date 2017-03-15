@@ -26,20 +26,8 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/typo.css">
     <link href="https://staticfile.qnssl.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <?php wp_head(); ?>
-    <!-- 接入DaoVoice -->
-   <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/7ca72f59.js","daovoice")</script>
 </head>
 <body <?php body_class(); ?>>
-<!--加载进度条-->
-<script>
-    NProgress.configure({
-        showSpinner: false,
-        easing: 'ease-out',
-        speed: 1000
-    });
-    NProgress.set(1);
-</script>
-
 <!--返回顶部-->
 <div id="back-to-top" class="red" data-scroll="body" style="display: block;">
     <svg id="rocket" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 64 64">

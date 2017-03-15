@@ -8,11 +8,11 @@ function mytheme_get_avatar($avatar) {
 add_filter( 'get_avatar', 'mytheme_get_avatar', 10, 3 );
 
 //官方Gravatar头像调用ssl头像链接
-function get_ssl_avatar($avatar) {
- $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
- return $avatar;
-}
-add_filter('get_avatar', 'get_ssl_avatar');
+// function get_ssl_avatar($avatar) {
+//  $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
+//  return $avatar;
+// }
+// add_filter('get_avatar', 'get_ssl_avatar');
 
 //日志归档
 class hacklog_archives
@@ -281,7 +281,7 @@ function amativeness_scripts_styles() {
 		wp_enqueue_script( 'comment-reply' );
 
 	// Adds JavaScript for handling the navigation menu hide-and-show behavior.
-	wp_enqueue_script( 'amativeness-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
+	// wp_enqueue_script( 'amativeness-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
 
 	$font_url = amativeness_get_font_url();
 	if ( ! empty( $font_url ) )
