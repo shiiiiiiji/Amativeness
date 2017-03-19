@@ -1513,6 +1513,9 @@ img#wpstats {
 	#back-to-top{
 		display: none;
 	}
+	body{
+		background: #e5e5e5 url(../images/background.png);
+	}
 
 }
 
@@ -2128,8 +2131,6 @@ outline: none;
 background: #DD5E5E;
 color: #FFF;
 }
-
-
 .itsay-search{
 	text-align: left;
 	line-height: 30px;
@@ -2140,5 +2141,11 @@ a:hover{
 	cursor:pointer;
 }
 .featured-post{
-	display: none;
+	float: right;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    border: 1px solid red;
+    padding: 2px;
 }

@@ -1,7 +1,7 @@
 <article id="post-<?php the_ID(); ?>" class="block post">
 		<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
 		<div class="featured-post">
-			<?php _e( 'Featured post', 'amativeness' ); ?>
+			<?php _e( '置顶', 'amativeness' ); ?>
 		</div>
 		<?php endif; ?>
 		<header class="entry-header">
